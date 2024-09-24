@@ -1,0 +1,12 @@
+# Build directory (CMake)
+build/
+bin/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# macOS specific files
+.DS_Store
