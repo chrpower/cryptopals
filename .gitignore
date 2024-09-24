@@ -8,5 +8,8 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 
+# Visual Studio Code generated files
+.vscode/
+
 # macOS specific files
 .DS_Store

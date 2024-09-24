@@ -1,12 +1,13 @@
 #include "base64_utils.h"
 
 std::string base64_encode(const std::string &in) {
-  constexpr std::string_view base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  constexpr std::string_view base64_chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
   std::string out;
   int bit_accumulator = 0;
   int bit_count = 0;
-  for (unsigned char c: in) {
+  for (unsigned char c : in) {
     bit_accumulator = (bit_accumulator << 8) | c;
     bit_count += 8;
 
@@ -27,4 +28,4 @@ std::string base64_encode(const std::string &in) {
   }
 
   return out;
- }
+}

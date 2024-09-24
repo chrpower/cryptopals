@@ -3,4 +3,4 @@
 
 void run_challenge_1();
 
-#endif //CHALLENGE1_H
+#endif // CHALLENGE1_H

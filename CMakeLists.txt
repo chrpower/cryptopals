@@ -10,6 +10,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 add_executable(Cypropals
         src/main.cpp
         src/challenges/challenge1.cpp
+        src/challenges/challenge2.cpp
         src/utils/base64_utils.cpp
         src/utils/hex_utils.cpp
+        src/utils/xor_utils.cpp
 )
