@@ -19,7 +19,6 @@ void run_challenge_2() {
   std::string hex_output = bytes_to_hex(xor_output);
 
   std::string expected_output = "746865206b696420646f6e277420706c6179";
-
   assert(hex_output == expected_output &&
          "Challenge 2 failed: XOR result did not match the expected result!");
 

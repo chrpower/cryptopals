@@ -16,7 +16,6 @@ void run_challenge_1() {
 
   std::string expected_output =
       "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t";
-
   assert(
       base64_output == expected_output &&
       "Challenge 1 failed: Base64 encoding did not match the expected result!");
