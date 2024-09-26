@@ -23,6 +23,13 @@ std::string fixed_xor(const std::string &binary_data_1,
 // data.
 std::string single_byte_xor(const std::string &binary_data, unsigned char key);
 
+// Performs a bitwise XOR operation between the input data and a repeating key.
+// The key is repeated as necessary to match the length of the input data.
+// Each byte in the input data is XORed with the corresponding byte in the key.
+// Returns a string containing the result of the XOR operation.
+std::string repeating_key_xor(const std::string &binary_data,
+                              const std::string &key);
+
 // Generates all possible single-byte XOR variations for the given input data.
 // It applies XOR for each key value from 0 to 255 and returns a vector of
 // Results, where each Result contains the processed data and the corresponding

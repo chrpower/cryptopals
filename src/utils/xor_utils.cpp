@@ -28,6 +28,18 @@ std::string single_byte_xor(const std::string &binary_data, unsigned char key) {
   return result;
 }
 
+std::string repeating_key_xor(const std::string &binary_data,
+                              const std::string &key) {
+  std::string result;
+  result.reserve(binary_data.size());
+  for (size_t i = 0; i < binary_data.size(); ++i) {
+    unsigned char data_byte = static_cast<unsigned char>(binary_data[i]);
+    unsigned char key_byte = static_cast<unsigned char>(key[i % key.size()]);
+    result.push_back(data_byte ^ key_byte);
+  }
+  return result;
+}
+
 std::vector<xor_cipher::Result>
 generate_variations(const std::string &binary_data) {
   std::vector<xor_cipher::Result> results;
