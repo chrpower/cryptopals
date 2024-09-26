@@ -3,11 +3,14 @@
 
 #include <string>
 
-// This function converts the input binary data into a Base64-encoded string,
-// which is a commonly used encoding for representing binary data in a textual
-// format using ASCII characters. The encoded string will contain only
-// characters from the Base64 alphabet ('A'-'Z', 'a'-'z', '0'-'9', '+', '/', and
-// '=' for padding).
-std::string base64_encode(const std::string &input);
+namespace base64 {
+
+// Converts binary data to a Base64-encoded string.
+// The input is a string of raw bytes.
+// The output is a Base64-encoded string containing only characters from the
+// Base64 alphabet ('A'-'Z', 'a'-'z', '0'-'9', '+', '/', and '=' for padding).
+std::string encode(const std::string &binary_data);
+
+} // namespace base64
 
 #endif // BASE64_UTILS_H

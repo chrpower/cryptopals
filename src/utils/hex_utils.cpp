@@ -16,27 +16,30 @@ int hex_char_to_int(char c) {
 }
 } // namespace
 
-std::string hex_to_bytes(const std::string &hex) {
-  assert(hex.length() % 2 == 0);
+namespace hex {
+
+std::string decode(const std::string &hex_string) {
+  assert(hex_string.length() % 2 == 0);
 
   std::string bytes;
-  bytes.reserve(hex.length() / 2);
-  for (size_t i = 0; i < hex.length(); i += 2) {
-    int high = hex_char_to_int(hex[i]);
-    int low = hex_char_to_int(hex[i + 1]);
+  bytes.reserve(hex_string.length() / 2);
+  for (size_t i = 0; i < hex_string.length(); i += 2) {
+    int high = hex_char_to_int(hex_string[i]);
+    int low = hex_char_to_int(hex_string[i + 1]);
     bytes.push_back((high << 4) | low);
   }
   return bytes;
 }
 
-std::string bytes_to_hex(const std::string &bytes) {
+std::string encode(const std::string &binary_data) {
   constexpr std::string_view hex_chars = "0123456789abcdef";
 
-  std::string hex;
-  hex.reserve(bytes.length() * 2);
-  for (unsigned char c : bytes) {
-    hex.push_back(hex_chars[(c >> 4) & 0x0F]);
-    hex.push_back(hex_chars[c & 0x0F]);
+  std::string hex_string;
+  hex_string.reserve(binary_data.length() * 2);
+  for (unsigned char c : binary_data) {
+    hex_string.push_back(hex_chars[(c >> 4) & 0x0F]);
+    hex_string.push_back(hex_chars[c & 0x0F]);
   }
-  return hex;
+  return hex_string;
 }
+} // namespace hex

@@ -3,15 +3,19 @@
 
 #include <string>
 
-// Converts a hexadecimal string to a binary (byte) string.
-// The input is expected to be a valid hex string with an even number of
+namespace hex {
+
+// Converts a hexadecimal string to binary data.
+// The input is expected to be a valid hexadecimal string with an even number of
 // characters. Each pair of hex characters is converted into a corresponding
 // byte.
-std::string hex_to_bytes(const std::string &hex);
+std::string decode(const std::string &hex_string);
 
-// Converts a binary (byte) string to its hexadecimal string representation.
-// The input is a string of raw bytes, and each byte is converted to a
-// two-character hex string.
-std::string bytes_to_hex(const std::string &bytes);
+// Converts binary data to its hexadecimal string representation.
+// The input is a string of raw bytes.
+// Each byte is converted to a two-character hexadecimal string.
+std::string encode(const std::string &binary_data);
+
+} // namespace hex
 
 #endif // HEX_UTILS_H

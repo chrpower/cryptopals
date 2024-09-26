@@ -9,16 +9,17 @@
 void run_challenge_2() {
   std::cout << "Running Challenge 2..." << std::endl;
 
-  std::string hex_input_1 = "1c0111001f010100061a024b53535009181c";
-  std::string decoded_bytes_1 = hex_to_bytes(hex_input_1);
+  const std::string hex_input1 = "1c0111001f010100061a024b53535009181c";
+  const std::string binary_data1 = hex::decode(hex_input1);
 
-  std::string hex_input_2 = "686974207468652062756c6c277320657965";
-  std::string decoded_bytes_2 = hex_to_bytes(hex_input_2);
+  const std::string hex_input2 = "686974207468652062756c6c277320657965";
+  const std::string binary_data2 = hex::decode(hex_input2);
 
-  std::string xor_output = fixed_xor(decoded_bytes_1, decoded_bytes_2);
-  std::string hex_output = bytes_to_hex(xor_output);
+  const std::string xor_output =
+      xor_cipher::fixed_xor(binary_data1, binary_data2);
+  const std::string hex_output = hex::encode(xor_output);
 
-  std::string expected_output = "746865206b696420646f6e277420706c6179";
+  const std::string expected_output = "746865206b696420646f6e277420706c6179";
   assert(hex_output == expected_output &&
          "Challenge 2 failed: XOR result did not match the expected result!");
 

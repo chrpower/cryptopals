@@ -12,7 +12,9 @@ add_executable(Cypropals
         src/challenges/challenge1.cpp
         src/challenges/challenge2.cpp
         src/challenges/challenge3.cpp
+        src/challenges/challenge4.cpp
         src/utils/base64_utils.cpp
+        src/utils/file_utils.cpp
         src/utils/hex_utils.cpp
         src/utils/text_utils.cpp
         src/utils/xor_utils.cpp
