@@ -1,10 +1,9 @@
-#include "xor_utils.h"
+#include <xor_cipher.h>
 
 #include <cassert>
-#include <string>
 #include <vector>
 
-namespace xor_cipher {
+namespace crypto::xor_cipher::operations {
 
 std::string fixed_xor(const std::string &binary_data1,
                       const std::string &binary_data2) {
@@ -40,17 +39,4 @@ std::string repeating_key_xor(const std::string &binary_data,
   return result;
 }
 
-std::vector<xor_cipher::Result>
-generate_variations(const std::string &binary_data) {
-  std::vector<xor_cipher::Result> results;
-  results.reserve(256);
-
-  for (int key = 0; key <= 255; ++key) {
-    unsigned char xor_key = static_cast<unsigned char>(key);
-    std::string message = single_byte_xor(binary_data, xor_key);
-    results.emplace_back(std::move(message), xor_key);
-  }
-  return results;
-}
-
-} // namespace xor_cipher
+} // namespace crypto::xor_cipher::operations

@@ -1,4 +1,4 @@
-#include "hex_utils.h"
+#include "hex.h"
 
 #include <cassert>
 
@@ -7,25 +7,27 @@ int hex_char_to_int(char c) {
   assert((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') ||
          (c >= 'A' && c <= 'F'));
 
-  if (c >= '0' && c <= '9')
+  if (c >= '0' && c <= '9') {
     return c - '0';
-  else if (c >= 'a' && c <= 'f')
+  }
+  if (c >= 'a' && c <= 'f') {
     return c - 'a' + 10;
-  else // c >= 'A' && c <= 'F'
-    return c - 'A' + 10;
+  }
+  // For 'A' to 'F'
+  return c - 'A' + 10;
 }
 } // namespace
 
 namespace hex {
 
-std::string decode(const std::string &hex_string) {
-  assert(hex_string.length() % 2 == 0);
+std::string decode(const std::string &hex_data) {
+  assert(hex_data.length() % 2 == 0);
 
   std::string bytes;
-  bytes.reserve(hex_string.length() / 2);
-  for (size_t i = 0; i < hex_string.length(); i += 2) {
-    int high = hex_char_to_int(hex_string[i]);
-    int low = hex_char_to_int(hex_string[i + 1]);
+  bytes.reserve(hex_data.length() / 2);
+  for (size_t i = 0; i < hex_data.length(); i += 2) {
+    int high = hex_char_to_int(hex_data[i]);
+    int low = hex_char_to_int(hex_data[i + 1]);
     bytes.push_back((high << 4) | low);
   }
   return bytes;

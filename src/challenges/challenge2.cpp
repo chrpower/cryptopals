@@ -3,8 +3,8 @@
 #include <cassert>
 #include <iostream>
 
-#include "hex_utils.h"
-#include "xor_utils.h"
+#include "hex.h"
+#include "xor_cipher.h"
 
 void run_challenge_2() {
   std::cout << "Running Challenge 2..." << std::endl;
@@ -16,7 +16,7 @@ void run_challenge_2() {
   const std::string binary_data2 = hex::decode(hex_input2);
 
   const std::string xor_output =
-      xor_cipher::fixed_xor(binary_data1, binary_data2);
+      crypto::xor_cipher::operations::fixed_xor(binary_data1, binary_data2);
   const std::string hex_output = hex::encode(xor_output);
 
   const std::string expected_output = "746865206b696420646f6e277420706c6179";

@@ -5,8 +5,8 @@
 #include <stdexcept>
 #include <string>
 
-#include "hex_utils.h"
-#include "xor_utils.h"
+#include "hex.h"
+#include "xor_cipher.h"
 
 void run_challenge_5() {
   std::cout << "Running Challenge 5..." << std::endl;
@@ -16,7 +16,7 @@ void run_challenge_5() {
   const std::string key = "ICE";
 
   const std::string encrypted_binary =
-      xor_cipher::repeating_key_xor(plaintext, key);
+      crypto::xor_cipher::operations::repeating_key_xor(plaintext, key);
   const std::string encrypted_hex = hex::encode(encrypted_binary);
 
   const std::string expected_output =

@@ -5,24 +5,21 @@
 #include <iostream>
 #include <string>
 
-#include <base64_utils.h>
-#include <file_utils.h>
-#include <hex_utils.h>
-#include <text_utils.h>
-#include <xor_utils.h>
+//#include "base64.h"
+#include "crypto_analysis.h"
+#include "file_io.h"
+#include "hex.h"
 
 void run_challenge_4() {
   std::cout << "Running Challenge 4..." << std::endl;
 
   const std::vector<std::string> hex_strings =
-      file_utils::read_file_lines("data/challenge4_input.txt");
+      file_io::read_file_as_lines("data/challenge4_input.txt");
 
-  std::optional<xor_cipher::Result> result;
+  std::optional<analysis::crypto::xor_cipher::Result> result;
   for (const auto &hex_input : hex_strings) {
     const std::string binary_data = hex::decode(hex_input);
-    const std::vector<xor_cipher::Result> candidates =
-        xor_cipher::generate_variations(binary_data);
-    result = text_analysis::find_first_english_match(candidates);
+    result = analysis::crypto::xor_cipher::decrypt_single_byte_xor(binary_data);
     if (result.has_value()) {
       break;
     }

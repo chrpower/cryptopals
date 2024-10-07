@@ -3,8 +3,8 @@
 #include <cassert>
 #include <iostream>
 
-#include "base64_utils.h"
-#include "hex_utils.h"
+#include "base64.h"
+#include "hex.h"
 
 void run_challenge_1() {
   std::cout << "Running Challenge 1..." << std::endl;
